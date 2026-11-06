@@ -1,0 +1,150 @@
+================================================================================
+STRIKE HOUSE - SISTEMA DE GESTAO DE ACADEMIA DE ARTES MARCIAIS
+GUIA DE INSTALACAO E EXECUCAO EM OUTROS COMPUTADORES (PASSO A PASSO)
+================================================================================
+
+Este guia foi elaborado para permitir que qualquer pessoa configure e execute o
+sistema Strike House em qualquer computador (Windows, Linux ou macOS).
+
+--------------------------------------------------------------------------------
+1. REQUISITOS DO SISTEMA (QUAL PROGRAMA PRECISO INSTALAR?)
+--------------------------------------------------------------------------------
+
+O Strike House foi desenvolvido utilizando tecnologias nativas e leves.
+O UNICO programa necessario para executar todo o sistema e o:
+
+   * NODE.JS (Versao 20 LTS ou superior - Recomendado: Node.js 22 LTS)
+
+Nao e necessario instalar bancos de dados pesados (como MySQL, PostgreSQL ou
+SQL Server), pois o Strike House utiliza banco de dados SQLite nativo de alta
+performance (WAL mode), gravado diretamente na pasta do projeto.
+
+Tambem nao e necessario instalar compiladores C++ ou ferramentas de build do
+Visual Studio.
+
+--------------------------------------------------------------------------------
+2. PASSO A PASSO PARA INSTALAR O NODE.JS (CASO NAO TENHA)
+--------------------------------------------------------------------------------
+
+1. Acesse o site oficial do Node.js:
+   https://nodejs.org/
+
+2. Baixe a versao indicada como "LTS" (Long Term Support / Recomendada para a
+   maioria dos usuarios), como o instalador para Windows (.msi).
+
+3. Execute o instalador baixado e avance clicando em "Next" ate concluir:
+   - Aceite os termos de licenca;
+   - Mantenha a pasta de instalacao padrao;
+   - Na etapa de selecao de componentes, certifique-se de que a opcao
+     "Add to PATH" esteja marcada (ja vem marcada por padrao);
+   - Clique em "Install" e aguarde a finalizacao.
+
+4. Para confirmar que o Node.js foi instalado corretamente:
+   - Abra o Prompt de Comando (CMD) ou PowerShell;
+   - Digite: node -v
+   - O comando deve retornar algo como: v22.x.x ou v20.x.x.
+
+--------------------------------------------------------------------------------
+3. EXECUCAO AUTOMATICA NO WINDOWS (FORMA MAIS RAPIDA - 1 CLIQUE)
+--------------------------------------------------------------------------------
+
+O projeto conta com um iniciador inteligente automatizado:
+
+1. Abra a pasta do projeto "strike-house";
+2. De um duplo clique no arquivo:
+   
+   start_strike_house.bat
+
+3. O iniciador ira verificar tudo automaticamente:
+   - Se for a primeira vez que executa no computador, ele ira instalar todas
+     as dependencias necessarias (npm install);
+   - Criara o arquivo de configuracao .env a partir do .env.example;
+   - Compilara o backend e o frontend automaticamente (npm run build);
+   - Inicializara o banco de dados e as migracoes;
+   - Iniciara o servidor e abrira o navegador em: http://localhost:3000.
+
+4. Pronto! O sistema ja estara pronto para uso.
+
+--------------------------------------------------------------------------------
+4. EXECUCAO MANUAL VIA TERMINAL (WINDOWS / LINUX / MAC)
+--------------------------------------------------------------------------------
+
+Caso prefira rodar os comandos manualmente pelo terminal:
+
+1. Abra o terminal (CMD, PowerShell ou Bash) na pasta do projeto "strike-house":
+   cd caminho/para/strike-house
+
+2. Instale as dependencias do projeto:
+   npm install
+
+3. Copie o arquivo de exemplo de ambiente (se o .env nao existir):
+   No Windows:
+   copy .env.example .env
+   
+   No Linux/macOS:
+   cp .env.example .env
+
+4. Compile o sistema completo (Backend TypeScript + Frontend React/Tailwind):
+   npm run build
+
+5. Inicie a aplicacao em producao:
+   npm start
+
+6. Abra o navegador de sua preferencia e acesse:
+   http://localhost:3000
+
+--------------------------------------------------------------------------------
+5. CREDENCIAIS DE ACESSO INICIAL
+--------------------------------------------------------------------------------
+
+Ao abrir o sistema pela primeira vez, o usuario administrador mestre ja e criado
+automaticamente pelo banco de dados:
+
+   * Email de Acesso: admin@strikehouse.com
+   * Senha Padrao:    admin123
+   * Perfil:          ADMINISTRADOR (Acesso total)
+
+Dica: Na tela de login existe um botao de atalho "Acesso Inicial Rapido" que
+preenche as credenciais com apenas 1 clique.
+
+--------------------------------------------------------------------------------
+6. PRINCIPAIS RECURSOS DO SISTEMA
+--------------------------------------------------------------------------------
+
+- Painel Operacional (Dashboard) com metricas em tempo real.
+- Alternador de Tema: Modo Noturno (Escuro) e Modo Diurno (Claro).
+- Gestao de Alunos (infantis e adultos) e vinculo com responsaveis legais.
+- Grade de Turmas, Professores e Modalidades (Muay Thai, Jiu-Jitsu, Boxe, etc.).
+- Matriculas e controle de mensalidades com historico imutavel de precos.
+- Liquidacao de pagamentos (PIX, Dinheiro, Cartao) e baixa financeira.
+- Linha do tempo de graduacoes e progresso de faixas.
+- Controle de fluxo de caixa e lancamento de despesas operacionais.
+- Backup do Banco de Dados: Botao de 1 clique na barra lateral que gera o
+  arquivo de seguranca .db com integridade transacional garantida (WAL mode).
+
+--------------------------------------------------------------------------------
+7. RESOLUCAO DE DUVIDAS E PROBLEMAS COMUNS (TROUBLESHOOTING)
+--------------------------------------------------------------------------------
+
+* Erro "node nao e reconhecido como comando":
+  O Node.js nao foi instalado ou o computador ainda nao atualizou as variaveis
+  de ambiente. Reinicie o terminal ou reinicie o computador apos instalar o Node.
+
+* Erro "address already in use 0.0.0.0:3000" (Porta 3000 ja em uso):
+  Outro aplicativo (ou outra janela do Strike House) esta usando a porta 3000.
+  Feche a outra janela ou edite o arquivo ".env" alterando "PORT=3000" para
+  outra porta, como "PORT=3001".
+
+* Como encerrar o sistema:
+  Basta pressionar Ctrl + C na janela preta do terminal onde o servidor esta
+  rodando e confirmar com 'S' (ou fechar a janela).
+
+* Onde ficam salvos os dados da academia?
+  Todos os cadastros, alunos, pagamentos e turmas ficam salvos no arquivo:
+  strike-house/data/strike_house.db
+  Para fazer um backup manual, basta copiar este arquivo para um pendrive ou
+  nuvem, ou clicar no botao "Backup do Banco" diretamente no painel.
+
+================================================================================
+Strike House &copy; - Todos os direitos reservados.
+================================================================================

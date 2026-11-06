@@ -1,0 +1,253 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    border-color: #2A3654;
+  }
+  
+  body {
+    background-color: #0B0E14;
+    color: #F8FAFC;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+}
+
+/* Scrollbar dark tech personalizada */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0B0E14;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2A3654;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #EF4444;
+}
+
+/* Efeito Glow e glass */
+.tech-card {
+  background-color: #111622;
+  border: 1px solid #2A3654;
+  transition: all 0.2s ease-in-out;
+}
+
+.tech-card:hover {
+  border-color: #EF4444;
+  box-shadow: 0 4px 20px -2px rgba(239, 68, 68, 0.2);
+}
+
+.tech-input {
+  background-color: #0B0E14;
+  border: 1px solid #2A3654;
+  color: #F8FAFC;
+  transition: all 0.15s ease-in-out;
+}
+
+.tech-input:focus {
+  outline: none;
+  border-color: #EF4444;
+  box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.25);
+}
+
+/* ========================================================
+   MODO DIA / LIGHT THEME (Ativado quando html tem classe .light)
+   ======================================================== */
+html.light,
+html.light body {
+  background-color: #F8FAFC !important;
+  color: #0F172A !important;
+}
+
+html.light * {
+  border-color: #E2E8F0;
+}
+
+/* Superfícies e Cards no Modo Dia */
+html.light .bg-\[\#0B0E14\] {
+  background-color: #F8FAFC !important;
+}
+
+html.light .bg-\[\#0B0E14\]\/90 {
+  background-color: rgba(248, 250, 252, 0.92) !important;
+}
+
+html.light .bg-\[\#111622\] {
+  background-color: #FFFFFF !important;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05);
+}
+
+html.light .bg-\[\#111622\]\/60 {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+}
+
+html.light .bg-\[\#171F30\] {
+  background-color: #F1F5F9 !important;
+}
+
+html.light .bg-\[\#171F30\]\/50 {
+  background-color: rgba(241, 245, 249, 0.6) !important;
+}
+
+html.light .hover\:bg-\[\#111622\]:hover {
+  background-color: #F1F5F9 !important;
+}
+
+html.light .hover\:bg-\[\#171F30\]:hover {
+  background-color: #E2E8F0 !important;
+}
+
+html.light aside {
+  background-color: #FFFFFF !important;
+  box-shadow: 1px 0 3px 0 rgba(0, 0, 0, 0.04);
+}
+
+html.light header {
+  background-color: rgba(255, 255, 255, 0.92) !important;
+}
+
+/* Bordas no Modo Dia */
+html.light .border-\[\#2A3654\] {
+  border-color: #E2E8F0 !important;
+}
+
+html.light .border-\[\#2A3654\]\/60 {
+  border-color: #E2E8F0 !important;
+}
+
+html.light .border-\[\#1E293B\]\/60 {
+  border-color: #E2E8F0 !important;
+}
+
+html.light .divide-\[\#2A3654\]\/50 > :not([hidden]) ~ :not([hidden]),
+html.light .divide-\[\#2A3654\] > :not([hidden]) ~ :not([hidden]) {
+  border-color: #E2E8F0 !important;
+}
+
+/* Textos e Tipografia no Modo Dia */
+html.light h1,
+html.light h2,
+html.light h3,
+html.light h4 {
+  color: #0F172A !important;
+}
+
+html.light .text-white:not([class*="bg-red-"]):not([class*="bg-emerald-"]):not([class*="bg-purple-"]):not([class*="bg-rose-"]):not([class*="bg-amber-"]):not([class*="from-red-"]) {
+  color: #0F172A !important;
+}
+
+html.light .text-slate-100 {
+  color: #0F172A !important;
+}
+
+html.light .text-slate-200 {
+  color: #1E293B !important;
+}
+
+html.light .text-slate-300 {
+  color: #334155 !important;
+}
+
+html.light .text-slate-400 {
+  color: #64748B !important;
+}
+
+html.light .text-slate-500 {
+  color: #64748B !important;
+}
+
+html.light .hover\:text-white:hover {
+  color: #0F172A !important;
+}
+
+/* Preservação de texto branco em botões com fundo colorido */
+html.light [class*="bg-red-"].text-white,
+html.light [class*="bg-emerald-"].text-white,
+html.light [class*="bg-purple-"].text-white,
+html.light [class*="bg-rose-"].text-white,
+html.light [class*="from-red-"].text-white,
+html.light button[class*="bg-red-"],
+html.light button[class*="bg-emerald-"],
+html.light button[class*="bg-purple-"],
+html.light button[class*="bg-rose-"] {
+  color: #FFFFFF !important;
+}
+
+html.light button[class*="bg-red-"] svg,
+html.light button[class*="bg-emerald-"] svg,
+html.light button[class*="bg-purple-"] svg {
+  color: #FFFFFF !important;
+}
+
+/* Entradas de Formulário (Inputs) no Modo Dia */
+html.light .tech-input {
+  background-color: #FFFFFF !important;
+  border: 1px solid #CBD5E1 !important;
+  color: #0F172A !important;
+}
+
+html.light .tech-input:focus {
+  border-color: #EF4444 !important;
+  box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.2) !important;
+}
+
+html.light .tech-input::placeholder {
+  color: #94A3B8 !important;
+}
+
+html.light select.tech-input option {
+  background-color: #FFFFFF !important;
+  color: #0F172A !important;
+}
+
+/* Cards no Modo Dia */
+html.light .tech-card {
+  background-color: #FFFFFF !important;
+  border: 1px solid #E2E8F0 !important;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+}
+
+html.light .tech-card:hover {
+  border-color: #EF4444 !important;
+  box-shadow: 0 4px 12px -2px rgba(239, 68, 68, 0.15) !important;
+}
+
+/* Tabelas no Modo Dia */
+html.light thead {
+  background-color: #F8FAFC !important;
+  border-bottom: 1px solid #E2E8F0 !important;
+}
+
+html.light thead th {
+  color: #64748B !important;
+}
+
+html.light tbody tr:hover {
+  background-color: #F1F5F9 !important;
+}
+
+/* Modais de sobreposição no Modo Dia */
+html.light .fixed.inset-0.bg-black\/80 {
+  background-color: rgba(15, 23, 42, 0.5) !important;
+}
+
+/* Scrollbar no Modo Dia */
+html.light ::-webkit-scrollbar-track {
+  background: #F1F5F9;
+}
+
+html.light ::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+}
+
+html.light ::-webkit-scrollbar-thumb:hover {
+  background: #EF4444;
+}
